@@ -34,4 +34,6 @@ public class Course extends BaseEntity {
 	@OneToMany(mappedBy= "course")
 	Set<Registration> registrations;
 
+	public Course(Long courseId, String s, String s1) {
+	}
 }
