@@ -52,7 +52,7 @@ pipeline {
             }
         }
 
-
+//run docker 
   stage('Run Docker image') {
             steps {
                 sh "sudo docker run -p 9090:9090 apptest"
