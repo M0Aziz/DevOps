@@ -1,4 +1,4 @@
-# Spring Boot - Academic project  
+# Spring Boot - Academic project yes  
 For 4th year classes (engineering degree): ESPRIT engineering school
 
 ## Class Diagram
