@@ -8,27 +8,31 @@ pipeline {
     }
 
 
- stage('Start Jenkins and MySQL') {
+
+    stages {
+
+
+     stage('Start Jenkins and MySQL') {
+                steps {
+                    sh "sudo docker start mysql"
+                    sh "sudo docker start jenkins"
+                }
+            }
+
+
+stage('Maven test') {
             steps {
-                sh "sudo docker start mysql"
-                sh "sudo docker start jenkins"
+                sh "mvn -version"
+                sh "mvn test"
             }
         }
 
-        stage('Maven test') {
-                    steps {
-                        sh "mvn -version"
-                        sh "mvn test"
-                    }
-                }
+       stage('SRC analysis tests') {
+            steps {
+              sh"mvn verify sonar:sonar -Dsonar.host.url=https://sonarcloud.io/ -Dsonar.organization=transbetter -Dsonar.token=87ac6a83de71fef8a59833d5c7af27ac9ac33f40"
 
-               stage('SRC analysis tests') {
-                    steps {
-                      sh"mvn verify sonar:sonar -Dsonar.host.url=https://sonarcloud.io/ -Dsonar.organization=transbetter -Dsonar.token=87ac6a83de71fef8a59833d5c7af27ac9ac33f40"
-
-                    }
-                }
-    stages {
+            }
+        }
         stage('Build JAR and Deploy to Nexus') {
             steps {
                 script {
@@ -40,7 +44,6 @@ pipeline {
                 }
             }
         }
-
 
 
         stage('Retrieve JAR from Nexus') {
