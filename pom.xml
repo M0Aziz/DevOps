@@ -10,7 +10,7 @@
     </parent>
     <groupId>tn.esprit.ds</groupId>
     <artifactId>SkiStationProject</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0</version>
     <name>SkiStationProject</name>
     <description>SkiStationProject</description>
     <properties>
@@ -62,7 +62,7 @@
              <!-- Dépôt pour les versions de type "snapshot" -->
         <repository>
              <id>deploymentRepo</id>
-             <url>http://192.168.33.10:8081/repository/maven-snapshots/</url>
+             <url>http://192.168.33.10:8081/repository/maven-releases/</url>
         </repository>
 
              <!-- Dépôt pour les versions de type "release" -->

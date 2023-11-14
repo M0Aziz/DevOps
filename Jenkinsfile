@@ -53,8 +53,8 @@ pipeline {
                            //  def version = sh(script: 'mvn help:evaluate -Dexpression=project.version -DforceStdout', returnStdout: true).trim()
                     //def version = sh(script: 'cat target/maven-metadata.xml | grep -oP "(?<=<version>)[^<]+"', returnStdout: true).trim()
                    // def version = sh(script: 'grep -A1 "<extension>jar</extension>" http://192.168.33.10:8081/repository/maven-snapshots/tn/esprit/ds/SkiStationProject/0.0.1-SNAPSHOT/maven-metadata.xml | grep "<value>" | awk -F ">" \'{print $2}\' | awk -F "<" \'{print $1}\'', returnStdout: true).trim()
-                    def version = sh(script: 'curl -s http://192.168.33.10:8081/repository/maven-snapshots/tn/esprit/ds/SkiStationProject/0.0.1-SNAPSHOT/maven-metadata.xml | grep -oP "(?<=<value>)[^<]+"', returnStdout: true).trim()
-                sh "sudo docker build -t apptest --build-arg VERSION=${version} ."
+                   // def version = sh(script: 'curl -s http://192.168.33.10:8081/repository/maven-snapshots/tn/esprit/ds/SkiStationProject/0.0.1-SNAPSHOT/maven-metadata.xml | grep -oP "(?<=<value>)[^<]+"', returnStdout: true).trim()
+               // sh "sudo docker build -t apptest --build-arg VERSION=${version} ."
 
                 }
             }
@@ -74,11 +74,11 @@ pipeline {
             }
         }*/
 
-       /* stage('Build Docker image') {
+       stage('Build Docker image') {
             steps {
-                sh "sudo docker build -t apptest --build-arg VERSION=${version} ."
+                sh "sudo docker build -t apptest ."
             }
-        }*/
+        }
 
         stage('Tag Docker image') {
             steps {
