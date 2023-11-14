@@ -33,31 +33,40 @@ stage('Maven test') {
 
             }
         }
-        stage('Build JAR and Deploy to Nexus') {
+    /*    stage('Build JAR and Deploy to Nexus') {
             steps {
                 script {
                     // Étape de build du projet Maven pour générer le JAR
                     sh "mvn clean package -DskipTests"
 
                     // Déploiement du JAR généré sur Nexus
-                    sh "curl -u $NEXUS_USER:$NEXUS_PASSWORD --upload-file target/SkiStationProject.jar http://192.168.33.10:8081/repository/maven-snapshots/"
+    sh "curl -u $NEXUS_USER:$NEXUS_PASSWORD --upload-file target/SkiStationProject.jar http://192.168.33.10:8081/repository/maven-snapshots/"
+                }
+            }
+        }*/
+
+        stage('Build and Deploy to Nexus') {
+            steps {
+                script {
+                    // Build and deploy the project to Nexus
+                    sh "mvn clean deploy -DskipTests"
                 }
             }
         }
 
 
-        stage('Retrieve JAR from Nexus') {
+       /* stage('Retrieve JAR from Nexus') {
             steps {
                 script {
                                     sh "mkdir jar"
 
                     // Téléchargement du fichier JAR depuis Nexus
                     //sh "curl -u $NEXUS_USER:$NEXUS_PASSWORD -O http://192.168.33.10:8081/repository/maven-snapshots/SkiStationProject.jar"
-                                    sh "curl -u $NEXUS_USER:$NEXUS_PASSWORD -o jar/SkiStationProject.jar http://192.168.33.10:8081/repository/maven-snapshots/SkiStationProject.jar"
+     sh "curl -u $NEXUS_USER:$NEXUS_PASSWORD -o jar/SkiStationProject.jar http://192.168.33.10:8081/repository/maven-snapshots/SkiStationProject.jar"
 
                 }
             }
-        }
+        }*/
 
         stage('Build Docker image') {
             steps {
