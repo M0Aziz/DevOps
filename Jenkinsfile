@@ -20,7 +20,7 @@ pipeline {
             }
 
 
-/*stage('Maven test') {
+stage('Maven test') {
             steps {
                 sh "mvn -version"
                 sh "mvn test"
@@ -32,7 +32,7 @@ pipeline {
               sh"mvn verify sonar:sonar -Dsonar.host.url=https://sonarcloud.io/ -Dsonar.organization=transbetter -Dsonar.token=87ac6a83de71fef8a59833d5c7af27ac9ac33f40"
 
             }
-        }*/
+        }
     /*    stage('Build JAR and Deploy to Nexus') {
             steps {
                 script {
@@ -74,7 +74,7 @@ pipeline {
             }
         }*/
 
-       stage('Build Docker image') {
+    /*   stage('Build Docker image') {
             steps {
                 sh "sudo docker build -t apptest ."
             }
@@ -99,7 +99,7 @@ pipeline {
                     sh "sudo docker push 192.168.33.10:8082/apptest:1.0"
                 }
             }
-        }
+        }*/
     }
 
     post {
