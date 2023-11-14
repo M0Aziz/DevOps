@@ -51,6 +51,7 @@ pipeline {
                     // Build and deploy the project to Nexus
                     sh "mvn clean deploy -DskipTests"
          def version = sh(script: 'mvn help:evaluate -Dexpression=project.version -q -DforceStdout', returnStdout: true).trim()
+                sh "sudo docker build -t apptest --build-arg VERSION=${version} ."
 
                 }
             }
@@ -70,11 +71,11 @@ pipeline {
             }
         }*/
 
-        stage('Build Docker image') {
+       /* stage('Build Docker image') {
             steps {
                 sh "sudo docker build -t apptest --build-arg VERSION=${version} ."
             }
-        }
+        }*/
 
         stage('Tag Docker image') {
             steps {
