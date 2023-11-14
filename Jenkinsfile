@@ -50,6 +50,8 @@ pipeline {
                 script {
                     // Build and deploy the project to Nexus
                     sh "mvn clean deploy -DskipTests"
+         def version = sh(script: 'mvn help:evaluate -Dexpression=project.version -q -DforceStdout', returnStdout: true).trim()
+
                 }
             }
         }
@@ -70,7 +72,7 @@ pipeline {
 
         stage('Build Docker image') {
             steps {
-                sh "sudo docker build -t apptest --build-arg BUILD_NUMBER=${BUILD_NUMBER} ."
+                sh "sudo docker build -t apptest --build-arg VERSION=${version} ."
             }
         }
 
