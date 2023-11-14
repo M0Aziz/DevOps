@@ -15,6 +15,8 @@
     <description>SkiStationProject</description>
     <properties>
         <java.version>1.8</java.version>
+        <jacoco.version>0.8.7</jacoco.version>
+
     </properties>
     <dependencies>
         <dependency>
@@ -59,16 +61,16 @@
         </dependency>
     </dependencies>
 	<distributionManagement>
-             <!-- Dépôt pour les versions de type "snapshot" -->
+             <!-- Dépôt pour les versions de type "release" -->
         <repository>
              <id>deploymentRepo</id>
              <url>http://192.168.33.10:8081/repository/maven-releases/</url>
         </repository>
 
-             <!-- Dépôt pour les versions de type "release" -->
+             <!-- Dépôt pour les versions de type "snapshot" -->
       <!--  <repository>
            <id>deploymentRepo</id>
-           <url>http://192.168.33.10:8081/repository/maven-releases/</url>
+           <url>http://192.168.33.10:8081/repository/maven-snapshot/</url>
         </repository> -->
     </distributionManagement>
 
@@ -88,7 +90,7 @@
                     </excludes>
                 </configuration>
             </plugin>
-            <plugin>
+        <!--    <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.8.6</version>
@@ -114,8 +116,27 @@
                         </configuration>
                     </execution>
                 </executions>
+            </plugin>-->
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>${jacoco.version}</version>
+                <executions>
+                    <execution>
+                        <id>jacoco-initialize</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>jacoco-site</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
-
         </plugins>
     </build>
 

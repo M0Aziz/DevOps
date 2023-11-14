@@ -86,10 +86,9 @@ pipeline {
             }
         }
 
-//test test
   stage('Run Docker image') {
             steps {
-                sh "sudo docker run -p 9090:9090 apptest"
+                sh "sudo docker run -d -p 9090:9090 apptest"
 
             }
         }
