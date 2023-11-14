@@ -20,7 +20,7 @@ pipeline {
             }
 
 
-/*stage('Maven test') {
+/* stage('Maven test') {
             steps {
                 sh "mvn -version"
                 sh "mvn test"
