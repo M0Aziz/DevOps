@@ -70,7 +70,7 @@ pipeline {
 
         stage('Build Docker image') {
             steps {
-                sh "sudo docker build -t apptest ."
+                sh "sudo docker build -t apptest --build-arg BUILD_NUMBER=${BUILD_NUMBER} ."
             }
         }
 

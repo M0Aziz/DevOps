@@ -20,7 +20,7 @@ WORKDIR /app
 
 # Copy the JAR file into the container from the 'jar' directory
 #COPY jar/*.jar SkiStationProject.jar
-ADD http://192.168.33.10:8081/repository/maven-snapshots/tn/esprit/ds/SkiStationProject/0.0.1-SNAPSHOT/SkiStationProject-0.0.1-20231113.140550-9.jar SkiStationProject.jar
+ADD http://192.168.33.10:8081/repository/maven-snapshots/tn/esprit/ds/SkiStationProject/0.0.1-SNAPSHOT/SkiStationProject-${BUILD_NUMBER}.jar SkiStationProject.jar
 
 # Expose the port
 EXPOSE 8080
