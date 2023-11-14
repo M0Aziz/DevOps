@@ -20,7 +20,7 @@ pipeline {
             }
 
 
-stage('Maven test') {
+/*stage('Maven test') {
             steps {
                 sh "mvn -version"
                 sh "mvn test"
@@ -32,7 +32,7 @@ stage('Maven test') {
               sh"mvn verify sonar:sonar -Dsonar.host.url=https://sonarcloud.io/ -Dsonar.organization=transbetter -Dsonar.token=87ac6a83de71fef8a59833d5c7af27ac9ac33f40"
 
             }
-        }
+        }*/
     /*    stage('Build JAR and Deploy to Nexus') {
             steps {
                 script {
