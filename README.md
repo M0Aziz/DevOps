@@ -12,11 +12,25 @@ For building and running the application you need:
 
 - [JDK 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 
+## Description for GitHub Repo Link - DevOps Project:
 ## Description pour le Lien du Repo GitHub - Projet DevOps :
+<br>
+Welcome to the GitHub repository of my DevOps project, a culmination of my academic endeavor in the field of development operations management. This project represents a comprehensive implementation of key DevOps concepts and tools, successfully deployed to automate and optimize software development processes.
 
+<br>
 Bienvenue sur le référentiel GitHub de mon projet DevOps, fruit de mon engagement académique dans le domaine de la gestion des opérations de développement. Ce projet représente une mise en œuvre complète des principaux concepts et outils DevOps, déployés avec succès pour automatiser et optimiser les processus de développement logiciel.
 
+## Project Highlights:
+
 ## Caractéristiques du Projet :
+
+🚀 DevOps Automation: Successful integration of DevOps practices to enhance collaboration between development and operations teams.<br>
+🛠️ CI/CD (Continuous Integration / Continuous Deployment): Implementation of a CI/CD pipeline for fast and reliable development cycles.
+🐳 Docker: Advanced use of Docker for application containerization and efficient environment management.
+📊 Monitoring with Grafana and Prometheus: Configuration of Grafana and Prometheus to monitor and analyze system performance.
+🔄 Version Control with Git: Tracking changes and effective collaboration using Git.
+📦 Artifact Management with Nexus: Utilization of Nexus for centralized management of artifacts and deliverables.
+🛡️ Unit Testing with JUnit: Establishment of unit tests with JUnit to ensure code quality.
 
 🚀 Automatisation DevOps : Intégration réussie de pratiques DevOps pour améliorer la collaboration entre les équipes de développement et d'opérations.
 🛠️ CI/CD (Intégration Continue / Déploiement Continu) : Mise en place d'un pipeline CI/CD pour des cycles de développement rapides et fiables.
