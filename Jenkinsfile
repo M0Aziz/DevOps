@@ -12,12 +12,6 @@ pipeline {
     stages {
 
 
-     stage('Start Jenkins and MySQL') {
-                steps {
-                    sh "sudo docker start mysql"
-                    sh "sudo docker start jenkins"
-                }
-            }
 
 
 stage('Maven test') {
@@ -74,7 +68,15 @@ stage('Maven test') {
             }
         }*/
 
-    /*   stage('Build Docker image') {
+
+        
+     stage('Start MySQL') {
+                steps {
+                    sh "sudo docker start mysql"
+                  //  sh "sudo docker start jenkins"
+                }
+            }
+      stage('Build Docker image') {
             steps {
                 sh "sudo docker build -t apptest ."
             }
@@ -86,20 +88,23 @@ stage('Maven test') {
             }
         }
 
-  stage('Run Docker image') {
-            steps {
-                sh "sudo docker run -d -p 9090:9090 apptest"
 
-            }
-        }
-        stage('Deploy Docker image to Nexus') {
+            stage('Deploy Docker image to Nexus') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'Nexus-Credentials', usernameVariable: 'admin', passwordVariable: 'nexus')]) {
                     sh "sudo docker login -u $NEXUS_USER -p $NEXUS_PASSWORD 192.168.33.10:8082"
                     sh "sudo docker push 192.168.33.10:8082/apptest:1.0"
                 }
             }
-        }*/
+        }
+
+  stage('Run Docker image') {
+            steps {
+                sh "sudo docker run -d -p 9090:9090 apptest"
+
+            }
+        }
+    
     }
 
     post {
